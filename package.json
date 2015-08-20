@@ -29,7 +29,9 @@
   },
   "homepage": "https://github.com/peterjacobson lukekavanagh/OrientationFun",
   "dependencies": {
-    "react": "^0.13.3"
+    "material-ui": "^0.10.4",
+    "react": "^0.13.3",
+    "react-tap-event-plugin": "^0.1.7"
   },
   "devDependencies": {
     "babelify": "^6.1.3",
