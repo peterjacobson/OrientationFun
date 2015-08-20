@@ -7,8 +7,17 @@ var divStyle = {
 
 module.exports = React.createClass({
 	render: function () {
+		var challenge = this.props.challenge;
 		return (
-			
+			<div>
+				<div>
+					<p>{challenge.title}</p>
+					<p>{challenge.points}</p>
+					<div id="checkBox">
+					</div>
+				</div>
+				<p>{challenge.description}</p>
+			</div>
 		)
 	}
 })
