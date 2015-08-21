@@ -6,6 +6,24 @@ var LeftBar = require('./leftBar');
 var Content = require('./content');
 var gameData = require('../gameData')
 
+var gameState;
+
+function initializeNewGameState(){
+	gameState = {
+		points: 0,
+		challenges: [],	
+	}
+
+	gameData.map(function(section) {
+		section.challenges.map(function(challenges) {
+			gameState.challenges.push({
+				id: challenge.id,
+				completed: false,
+			})
+		})
+	})
+}
+
 
 
 

@@ -2,7 +2,7 @@ var React = require('react');
 
 var divStyle = {
 	position: 'absolute',
-	width: '100%',
+	width: '100%'
 }
 
 module.exports = React.createClass({
