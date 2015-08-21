@@ -35,14 +35,11 @@ module.exports = React.createClass({
 	initializeNewGameState: function() {
 		var gameState = {
 			points: 0,
-			challenges: [],	
+			challenges: {},	
 		};
 		gameData.map(function(section) {
 			section.challenges.map(function(challenge) {
-				gameState.challenges.push({
-					id: challenge.id,
-					completed: false,
-				})
+				gameState.challenges[challenge.id] = false
 			})
 		})
 		return gameState; // Check async 

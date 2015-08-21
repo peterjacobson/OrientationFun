@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/peterjacobson lukekavanagh/OrientationFun",
   "dependencies": {
+    "alt": "^0.17.1",
     "material-ui": "^0.10.4",
     "react": "^0.13.3",
     "react-tap-event-plugin": "^0.1.7"

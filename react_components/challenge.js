@@ -1,8 +1,6 @@
 var React = require('react');
 
-var mui = require('material-ui') 
-
-var Checkbox = mui.Checkbox;
+var TickBox = require('./challengeTickbox');
 
 var divStyle = {
 	position: 'absolute',
@@ -13,17 +11,14 @@ module.exports = React.createClass({
 	render: function () {
 		var challenge = this.props.challenge;
 		return (
-			<div>
+			<div className='challenge' id={this.props.challenge.id}>
 				<div>
 					<p>{challenge.title}</p>
 					<p>{challenge.points}</p>
-					<Checkbox
-		        name="checkboxName1"
-		        value="checkboxValue1"
-		        label=""/>
+					<TickBox id={this.props.challenge.id} />
 				</div>
 				<p>{challenge.description}</p>
 			</div>
 		)
-	}
+	},
 })
