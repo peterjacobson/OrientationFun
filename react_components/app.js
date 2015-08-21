@@ -6,27 +6,6 @@ var LeftBar = require('./leftBar');
 var Content = require('./content');
 var gameData = require('../gameData')
 
-var gameState;
-
-function initializeNewGameState(){
-	gameState = {
-		points: 0,
-		challenges: [],	
-	}
-
-	gameData.map(function(section) {
-		section.challenges.map(function(challenges) {
-			gameState.challenges.push({
-				id: challenge.id,
-				completed: false,
-			})
-		})
-	})
-}
-
-
-
-
 let injectTapEventPlugin = require("react-tap-event-plugin");
 
 //Needed for onTouchTap
@@ -35,20 +14,38 @@ let injectTapEventPlugin = require("react-tap-event-plugin");
 //https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-
 var divStyle = {
 	position: 'absolute',
 	width: '100%',
 }
 
 module.exports = React.createClass({
+	getInitialState: function() {
+		var gameState = this.initializeNewGameState();
+		return {gameState}
+	},
 	render: function () {
 		return (
 			<div style={divStyle} className="container">
 				<LeftBar />
-				<Content sections={gameData} />
+				<Content sections={gameData} gameState={this.state} />
 			</div>
 		)
+	},
+	initializeNewGameState = function() {
+		gameState = {
+			points: 0,
+			challenges: [],	
+		}
+		gameData.map(function(section) {
+			section.challenges.map(function(challenges) {
+				gameState.challenges.push({
+					id: challenge.id,
+					completed: false,
+				})
+			})
+		})
+		return gameState; // Check async 
 	},
 	childContextTypes: {
     muiTheme: React.PropTypes.object
@@ -60,6 +57,4 @@ module.exports = React.createClass({
       muiTheme: ThemeManager.getCurrentTheme()
     };
   }
-
-
 })

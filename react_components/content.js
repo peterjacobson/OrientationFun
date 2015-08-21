@@ -17,6 +17,7 @@ module.exports = React.createClass({
 				{sections.map(function(section) {
 					return <Section section={section}/>
 				})}
+				<p> {this.state} </p>
 			</div>
 		)
 	}

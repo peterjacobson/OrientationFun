@@ -37,7 +37,7 @@ module.exports = [
 		header: '',
 		challenges: [
 			{	
-				id: 1,
+				id: 5,
 				title: "Connect with buddy",
 				points: 10,
 				description: "You will have received an email about this.  As soon as you can, schedule in a meet-up or skype call with this person. They’ll find out more about why you’ve joined, who you’d like to be connected to and show you around our online spaces (and our co-working space if you’re based in Wellington)."
