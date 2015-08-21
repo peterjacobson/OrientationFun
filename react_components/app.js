@@ -6,8 +6,8 @@ var LeftBar = require('./leftBar');
 var Content = require('./content');
 var gameData = require('../gameData')
 
+//from react docs...
 let injectTapEventPlugin = require("react-tap-event-plugin");
-
 //Needed for onTouchTap
 //Can go away when react 1.0 release
 //Check this repo:
@@ -22,23 +22,23 @@ var divStyle = {
 module.exports = React.createClass({
 	getInitialState: function() {
 		var gameState = this.initializeNewGameState();
-		return {gameState}
+		return {gameState: gameState}
 	},
 	render: function () {
 		return (
 			<div style={divStyle} className="container">
 				<LeftBar />
-				<Content sections={gameData} gameState={this.state} />
+				<Content sections={gameData} gameState={this.state.gameState} />
 			</div>
 		)
 	},
-	initializeNewGameState = function() {
-		gameState = {
+	initializeNewGameState: function() {
+		var gameState = {
 			points: 0,
 			challenges: [],	
-		}
+		};
 		gameData.map(function(section) {
-			section.challenges.map(function(challenges) {
+			section.challenges.map(function(challenge) {
 				gameState.challenges.push({
 					id: challenge.id,
 					completed: false,
