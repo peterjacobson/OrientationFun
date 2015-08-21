@@ -28,9 +28,15 @@ module.exports = React.createClass({
 		return (
 			<div style={divStyle} className="container">
 				<LeftBar gameState={this.state.gameState} />
-				<Content sections={gameData} gameState={this.state.gameState} />
+				<Content 
+					sections={gameData} 
+					gameState={this.state.gameState} 
+					changeGameState={this.changeGameState} />
 			</div>
 		)
+	},
+	changeGameState: function(state) {
+		this.setState({state})
 	},
 	initializeNewGameState: function() {
 		var gameState = {

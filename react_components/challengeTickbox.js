@@ -17,8 +17,9 @@ module.exports = React.createClass({
 		)
 	},
 	handleClick: function(e) {
-		var nextState = this.state.gameState;
-		nextState.challenges[this.id] = !this.state.gameState.challenges[this.id]
-		this.setState({ nextState })
+		var nextState = this.props.gameState;
+		nextState.challenges[this.props.id] = !this.props.gameState.challenges[this.props.id]
+		this.props.changeGameState({ gameState: nextState })
+		console.log(nextState);
 	}
 })
