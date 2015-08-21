@@ -27,7 +27,7 @@ module.exports = React.createClass({
 	render: function () {
 		return (
 			<div style={divStyle} className="container">
-				<LeftBar />
+				<LeftBar gameState={this.state.gameState} />
 				<Content sections={gameData} gameState={this.state.gameState} />
 			</div>
 		)
